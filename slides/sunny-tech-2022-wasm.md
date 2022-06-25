@@ -1,59 +1,5 @@
 
 
-![bg](#3AF1F2)
-![fg](#000000)
-
-# Cas d'utilisation
-### (Wasm dans le navigateur)
----
-
-# Quelques applications
-
-- Jeux Vidéos
-- "Vraies" applications
-- Traitement d’image en local (dans le navigateur), OCR
-- Cartographie
-- Machine Learning
-- Chiffrement dans le navigateur
-- ...
-
----
-
-### https://web.autocad.com
-
-![w:800](pictures/autocad.png)
-
----
-
-#### https://beta.unity3d.com/jonas/AngryBots/
-
-![w:800](pictures/unity.png)
-
-<!--
-https://blog.unity.com/technology/webassembly-is-here
--->
----
-
-#### https://github.com/naptha/tesseract.js
-
-![w:800](pictures/tesseract.png)
-
-<!-- OCR ordonances Doctolib -->
----
-
-# Webcontainers
-
-https://blog.stackblitz.com/posts/introducing-webcontainers/
-https://github.com/stackblitz/webcontainer-core
-https://stackblitz.com/edit/node-merzas?file=package.json,index.js
-
----
-
-# Plus besoin de l’AppStore ? 😬
-
-<!-- l'avenir nous le dira -->
-
----
 ![bg](#3217EF)
 ![fg](#FFFFFF)
 
