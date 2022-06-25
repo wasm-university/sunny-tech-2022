@@ -1,0 +1,25 @@
+
+
+Il est possible de faire
+ sa propre
+ CLI
+
+Complexité de types
+
+Host functions compliqué
+
+Mais il y a des framework qui permettent de se simplifier la vie
+
+sat + runnables
+
+
+Sat c'est aussi un server http
+
+wasm serverless and co
+
+Suborbital
+.Net
+
+citer les autres
+
+

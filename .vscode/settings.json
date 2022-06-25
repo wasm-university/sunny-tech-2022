@@ -2,7 +2,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Gitpod Light",
   "terminal.integrated.fontSize": 16,
-  "editor.fontSize": 18,
+  "editor.fontSize": 16,
   "go.toolsEnvVars": {
     "GOOS": "js",
     "GOARCH": "wasm",
