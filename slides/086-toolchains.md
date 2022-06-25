@@ -11,9 +11,9 @@ th {
     color: blue;
 }
 mark {
-    background-color: #EFD217;
-    color: #000000;
-  }
+  background-color: #EFD217;
+  color: #000000;
+}
 </style>
 
 Langage         | WASM (VM JS)                    | WASI                                     | Remarks
