@@ -2,6 +2,7 @@
 
 - Faire choisir le langage au démarrage 🤔
 - En fait **Wasm** est polyglotte
-- ... Et j'ai galéré en **Rust** sur les exemples compliqués 🥵
+- Donc la prez est polyglotte
+  - ... Et j'ai galéré en **Rust** sur certains exemples compliqués 🥵
 
 ---

@@ -64,7 +64,7 @@ func (this *Cow) move() {
 		this.y = math.Min(this.y, this.constraints.height - this.constraints.border)
 		this.yVelocity = -this.yVelocity
 		this.y += this.yVelocity
-	}   
+	}
 
 }
 
@@ -79,20 +79,14 @@ func (this *Cow) moveAway (boids []*Cow, minDistance float64) {
 	var distanceY = 0.0
 	var numClose = 0.0
 
-	//     for i := 1; i <= 5; i++ {
-		
-
 	for i := 0; i < len(boids); i++ {
 		var boid = boids[i];
 
 		if(boid.x == this.x && boid.y == this.y) {
-			//fmt.Println("continue")
 			continue
-		} 
+		}
 
 		var distance = this.distance(*boid)
-
-		//fmt.Println("distance:", distance, "minDistance", minDistance)
 
 		if(distance < minDistance) {
 			numClose++
@@ -117,13 +111,10 @@ func (this *Cow) moveAway (boids []*Cow, minDistance float64) {
 	}
 
 	if(numClose == 0) {
-		//fmt.Println("nothing")
 		return
-	} 
-	//fmt.Println("something")
+	}
 	this.xVelocity -= distanceX / 5
 	this.yVelocity -= distanceY / 5
-	
 }
 
 func (this *Cow) moveCloser (boids []*Cow, distance float64) {
@@ -146,7 +137,7 @@ func (this *Cow) moveCloser (boids []*Cow, distance float64) {
 	avgY /= float64(len(boids))
 
 	distance = math.Sqrt((avgX * avgX) + (avgY * avgY)) * -1.0
-	
+
 	if(distance == 0.0) {
 		return
 	}
@@ -181,9 +172,7 @@ func (this *Cow) moveWith (boids []*Cow, distance float64) {
 	this.yVelocity = math.Min(this.yVelocity + (avgY / distance) * 0.05, this.constraints.maxVelocity)
 }
 
-func (this *Cow) draw(canvas js.Value, context js.Value, formerX float64, formerY float64) {
-	// 🚧 WIP
-	//fmt.Println("🐮", this.nickName, this.x, this.y)
+func (this *Cow) draw(context js.Value, formerX float64, formerY float64) {
 
 	drawCircle :=
 		func(circle Circle) {
@@ -195,7 +184,7 @@ func (this *Cow) draw(canvas js.Value, context js.Value, formerX float64, former
 			context.Set("strokeStyle", circle.borderColor)
 			context.Call("stroke")
 		}
-	
+
 	previousCircle := Circle{
 		x: formerX,
 		y: formerY,
@@ -217,8 +206,6 @@ func (this *Cow) draw(canvas js.Value, context js.Value, formerX float64, former
 	drawCircle(previousCircle)
 	drawCircle(currentCircle)
 
-
-
 }
 
 
@@ -228,14 +215,8 @@ func main() {
 	doc = window.Get("document")
 	body = doc.Get("body")
 	canvas = doc.Call("getElementById", "canvas")
-	
+
 	context = canvas.Call("getContext", "2d")
-
-	/*
-  let canvas = document.getElementById('canvas');
-  let context = canvas.getContext('2d');
-	*/
-
 
 	constraints := Constraints{
 		border:      5.0,
@@ -244,28 +225,6 @@ func main() {
 		maxVelocity: 5.0,
 	}
 
-	/*
-	bob := Cow{
-		nickName: "Bob",
-		x: 10.0,
-		y: 10.0,
-		constraints: constraints,
-		xVelocity: 1.0,
-		yVelocity: -1.0,
-	}
-	*/
-
-	/*
-	bob := Cow{}
-	bob.initialize("Bob", 10.0, 10.0, constraints)
-
-	sam := Cow{}
-	sam.initialize("Sam", 10.0, 10.0, constraints)
-
-	var cowsList []*Cow
-	cowsList = append(cowsList, &sam)
-	cowsList = append(cowsList, &bob)
-	*/
 
 	var cowsList []*Cow
 
@@ -274,8 +233,6 @@ func main() {
 		cow.initialize("Bob"+strconv.Itoa(i), 10.0, 10.0, constraints)
 		cowsList = append(cowsList, &cow)
 	}
-
-
 
 	for true {
 		for _, cow := range cowsList {
@@ -286,42 +243,14 @@ func main() {
 			cow.moveCloser(cowsList, 300.0)
 			cow.moveAway(cowsList, 15.0)
 			cow.move()
-		
-			cow.draw(canvas, context, formerX, formerY)
+
+			cow.draw(context, formerX, formerY)
 		}
 		time.Sleep(1 * time.Millisecond)
 	}
-	//bob.start(cowsList)
-	//sam.start(cowsList)
-	
-	/*
-	sam.move()
-	sam.move()
-
-	fmt.Println(bob.nickName, bob.constraints.maxVelocity)
-
-	fmt.Println(bob.x, bob.y)
-	bob.move()
-	fmt.Println(bob.x, bob.y)
-	fmt.Println(bob.distance(sam))
-
-	h := human{name: "Bob", greetings: ""}
-	h.setGreetings("I'm Bob")
-	fmt.Println(h.greetings)
-
-	fmt.Println(sam.x, sam.y, sam.xVelocity, sam.yVelocity)
-	sam.moveAway([]*Cow{&sam, &bob}, 3.0)
-	fmt.Println(sam.x, sam.y, sam.xVelocity, sam.yVelocity)
-	*/
-
-
 
 	<-make(chan bool)
 
-	
 
 }
 
-func String(i int) {
-	panic("unimplemented")
-}
