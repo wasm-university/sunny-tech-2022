@@ -691,3 +691,442 @@ ul {
 <!-- l'avenir nous le dira -->
 
 ---
+
+![bg](#3217EF)
+![fg](#FFFFFF)
+
+<style scoped>
+  mark {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+</style>
+
+# Libérez, délivrez Wasm
+## ... du navigateur (de la VM JS)
+# <mark>WASI</mark>
+https://wasi.dev/
+
+---
+
+<style scoped>
+  mark-cyan {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+  mark-orange {
+    background-color: #F7C00E;
+    color: #000000;
+  }
+  mark-purple {
+    background-color: #942EC1;
+    color: #FFFFFF;
+  }
+  mark-grey {
+    background-color: #E2E0D6;
+    color: #000000;
+  }
+  ul {
+    font-size: 70%;
+  }
+</style>
+
+### WASI: WebAssembly System Interface
+Sous-groupe de spécifications **WebAssembly** pour transformer <mark-purple>**WASM**</mark-purple> en <mark-cyan>**"Portable Runtime"**</mark-cyan>
+
+> <mark-grey>**WASI == Les fondations pour "sortir" Wasm du navigateur**</mark-grey>
+
+
+> **WASI est une spécification pour pouvoir fournir un accès <mark-cyan>sécurisé et isolé</mark-cyan> au système sur lequel s’exécute <mark-orange>l’hôte</mark-orange> du <mark-purple>module Wasm</mark-purple>.**
+
+---
+
+
+<style scoped>
+  mark-cyan {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+  mark-orange {
+    background-color: #F7C00E;
+    color: #000000;
+  }
+  ul {
+    font-size: 70%;
+  }
+</style>
+
+**Un module WebAssembly "WASI" est :**
+
+- Sécurisé
+- Polyglotte
+- Rapide
+- <mark-cyan>Léger</mark-cyan>
+
+**Un module WebAssembly <mark-orange>ne peut pas</mark-orange> :**
+
+- Accéder au système d’exploitation
+- Accéder à la mémoire que le host ne lui a pas donnée
+- Faire des requêtes sur le réseau
+- Lire ou écrire dans des fichiers
+
+
+---
+<style scoped>
+  mark {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+  ul {
+    font-size: 70%;
+  }
+</style>
+
+![bg](#973AF2)
+![fg](#FFFFFF)
+
+# Les Runtimes "WASI"
+(qui implémentent la norme WASI)
+
+- WASM / WASI => les spécifications par le **W3C**,
+- La **Bytecode Alliance** s’occupe de l’implémentation
+
+Avec Amazon, ARM, <mark>Cosmonic</mark>, Fastly, Google, Intel, <mark>Fermyon</mark>, <mark>Suborbital</mark>, Microsoft, Mozilla, Shopify, Siemens ...
+
+---
+
+#### Les 3 les plus reconnus du moment :
+
+- **Wasmer**: https://wasmer.io/
+- **Wasmtime**: https://wasmtime.dev/
+- **WasmEdge**: https://wasmedge.org/
+
+#### 2 fonctions :
+
+- **CLI** : pour exécuter du code Wasm à partir d’une CLI
+- **SDK** : pour exécuter du code Wasm à partir d’un autre langage (Rust, Go, C/C++)
+
+---
+
+###### Principe du Host Runtime
+
+![w:900](pictures/wasm-05.jpeg)
+
+---
+
+##### SDK WASI / Langage <mark>(<> CLI)</mark>
+
+<style scoped>
+  mark {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+  table {
+      height: 80%;
+      width: 100%;
+      font-size: 20px;
+      color: green;
+  }
+  th {
+      color: blue;
+  }
+</style>
+
+Langage             | WASMER                   | WASMEDGE (+arm)           | WASMTIME (+arm)
+:-------------------|:-------------------------|:--------------------------|:--------
+  <mark>Rust</mark> |  x                       |  x                        |  x
+  <mark>Go</mark>   |  x (<mark>TinyGo</mark>) |  x  (<mark>TinyGo</mark>) |  x (<mark>TinyGo</mark>)
+  <mark>C</mark>    |  x                       |  x                        |  x
+  C++               |  x                       |                           |
+  Python            |  x                       |  x                        |  x
+  Swift             |  x                       |  x                        |  ?
+  Grain             |                          |  x                        |  ?
+  .Net              |  x (C#)                  |                           |  x
+  NodeJS            |  x                       |  x                        |
+  Bash              |                          |                           |  x
+  Java              |  x                       |                           |  x (outside Bytecode Alliance)
+  Perl              |                          |                           |  x (outside Bytecode Alliance)
+  Zig               |  x (not published)       |                           |  x (outside Bytecode Alliance)
+  Ruby              |                          |                           |  x (outside Bytecode Alliance)
+> *Wasmer supporte d'autres langages*
+
+---
+
+
+
+<style scoped>
+  mark-cyan {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+  mark-orange {
+    background-color: #F7C00E;
+    color: #000000;
+  }
+  ul {
+    font-size: 70%;
+  }
+</style>
+
+![bg](#000000)
+![fg](#FFFFFF)
+# Démo 🚀
+## Utiliser la CLI des runtimes WASI
+### Avec un module en <mark-orange>Grain</mark-orange>
+
+<a href="https://github.com/wasm-university/sunny-tech-2022/tree/main/04-use-cli-grain-division" target="_blank">04-use-cli-grain-division</a>
+
+- <mark-orange>Grain</mark-orange> ne cible que le wasm
+- https://grain-lang.org/
+---
+<style scoped>
+  mark {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+  ul {
+    font-size: 70%;
+  }
+</style>
+
+![bg](#E5D5F5)
+![fg](#000000)
+
+# Pourquoi utiliser les SDK des Runtimes "WASI" ?
+
+- Pour faire votre propre "CLI Wasm" 🤓
+- Pour appeler des fonctions Wasm à partir de Go 🚀
+- ...
+
+La documentation de WasmEdge est 💖
+- https://wasmedge.org/book/en/embed/go.html
+- https://github.com/second-state/WasmEdge-go-examples
+
+---
+
+<style scoped>
+  mark {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+  ul {
+    font-size: 90%;
+  }
+</style>
+
+
+#### Mais il y a des limitations 😢
+
+- **Système de type trop simple**
+  - <mark>Seulement 4 types numériques</mark> :
+    - Integers (32 & 64 bit)
+    - Floats (32 & 64 bit)
+  - Passer une `String` à une fonction n'est pas trivial 🥵
+
+- **Mode d’exécution fermé du module Wasm**
+  - <mark>Pas d’accès à "l’extérieur"</mark> :
+    - Pas d’appel http
+    - Pas d’accès fichier
+    - ...
+  - Il est possible de définir des **host functions**
+    - mais ce n'est pas simple 🤬
+
+---
+<style scoped>
+  ul {
+    font-size: 90%;
+  }
+</style>
+
+
+#### Comment contourner ces limitations
+##### "the hard way"
+
+- Passage de **Strings** à une fonction avec **WasmEdge**
+  - Pass complex parameters to Wasm functions: https://wasmedge.org/book/en/embed/go/memory.html
+- Création de **Host Functions** avec **WasmEdge**
+  - https://wasmedge.org/book/en/extend/plugin/hostfunction.html#host-functions
+
+---
+
+###### Principe des host functions
+
+![w:900](pictures/wasm-06.jpeg)
+
+---
+<style scoped>
+  mark {
+    background-color: #17EFE7;
+    color: #000000;
+  }
+</style>
+## Mais : à venir
+
+<mark><b>Interface Types</b></mark> : décrire des types de plus haut niveau, éviter les frictions
+
+https://hacks.mozilla.org/2019/08/webassembly-interface-types/
+
+---
+![bg](#3AF1F2)
+![fg](#000000)
+
+### Comment contourner ces limitations
+#### "the soft 🤗 way"
+
+Avec des frameworks au dessus des SDKs
+
+---
+
+
+![w:500](pictures/suborbital.png)
+
+#### 🛰 <mark>Sat</mark> un framework au dessus de WasmEdge, Wasmtime & Wasmer
+#### 🛠 <mark>Subo</mark> une CLI multi toolchains
+#### 💊 les <mark>Runnables</mark> des modules WASM vitaminés & polyglottes
+
+
+
+https://suborbital.dev/
+<!--
+https://github.com/suborbital/sat/issues/122
+-->
+---
+
+<style scoped>
+  mark {
+    background-color: #F7C00E;
+    color: #000000;
+  }
+</style>
+
+![bg](#000000)
+![fg](#FFFFFF)
+# Démo(s) 🚀
+### Une CLI "facile" avec Sat
+#### <mark>Strings & Host Functions</mark>
+
+<a href="https://github.com/wasm-university/sunny-tech-2022/tree/main/05-go-sat" target="_blank">05-go-sat</a>
+
+---
+
+<style scoped>
+  mark {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+</style>
+![bg](#FFC300 )
+# Perspectives (Wasi & SDK)
+
+- Write once, run anywhere (encore un peu de travail)
+  - Runtimes multi-plateformes
+- Applications (CLI ou autre) avec plugins wasm
+- "Lanceurs/Serveurs" de modules wasm
+  - <mark>**Sécurité** 🖐️</mark>
+  - Activation/Ajout de fonctionnalités
+  - Bots, Hooks, FaaS, UDF, ...
+
+---
+
+<style scoped>
+  mark {
+    color: #44F099;
+  }
+</style>
+
+![bg](#1A8B6E)
+![fg](#FFFFFF)
+
+# MicroServices, FaaS, ...
+### <mark>Avec WebAssembly</mark>
+
+<!--
+- Utiliser d'autres langages (ex Grain)
+- Parler des tests de charges
+-->
+---
+
+<style scoped>
+  ul {
+    font-size: 75%;
+  }
+</style>
+### Quelques solutions
+
+- ![w:50](pictures/deislab.png) https://deislabs.io/
+  - **WAGI**: WebAssembly Gateway Interface https://github.com/deislabs/wagi
+- ![w:50](pictures/fermyon.png) https://www.fermyon.com/
+  - **Spin**: https://spin.fermyon.dev/
+- ![w:200](pictures/suborbital.png) https://suborbital.dev/
+  - **Sat** 😍 est aussi un serveur http qui sert les **Runnables** https://github.com/suborbital/sat
+- ![](pictures/cosmonic.png) https://cosmonic.com/
+  - **WasmCloud** https://wasmcloud.com/
+- ![w:50](pictures/dotnet.png) https://dotnet.microsoft.com
+  - **Wasi.Sdk** & **Wasi.AspNetCore.Server.Native**
+---
+<style scoped>
+  mark {
+    background-color: #F7C00E;
+    color: #000000;
+  }
+</style>
+
+![bg](#000000)
+![fg](#FFFFFF)
+# Démo(s) 🚀
+
+<a href="https://github.com/wasm-university/sunny-tech-2022/tree/main/06-wasi-asp-dotnet" target="_blank">06-wasi-asp-dotnet</a>
+CSharp function (le **Wasi.Sdk** est expérimental)
+
+<a href="https://github.com/wasm-university/sunny-tech-2022/tree/main/07-sat" target="_blank">07-sat</a>
+AssemblyScript & <mark>JavaScript</mark> functions
+
+---
+<style scoped>
+  mark {
+    color: #44F099;
+  }
+</style>
+
+![bg](#1A8B6E)
+![fg](#FFFFFF)
+
+# Et après ?
+### <mark>Le futur de WebAssembly</mark> 👀
+
+---
+<style scoped>
+ul {
+   font-size: 70%;
+}
+</style>
+##### À suivre https://github.com/WebAssembly
+*Juin 2022 :*
+- https://github.com/WebAssembly/component-model
+  - amélioration intégration host
+  - activité (GitHub Insights) en début d'année et un peu récemment
+- https://github.com/WebAssembly/interface-types
+  - reporté dans component-model
+- https://github.com/WebAssembly/exception-handling
+  - grosse activité en début d'année
+- https://github.com/WebAssembly/debugging
+  - 💀 😢
+- https://github.com/WebAssembly/wasi-filesystem
+  - un peu d'activité récemment
+
+
+---
+
+<style scoped>
+  mark {
+    color: #44F099;
+  }
+</style>
+
+![bg](#1A8B6E)
+![fg](#FFFFFF)
+
+# Merci 😃
+
+## <mark>Questions ?<mark>
+---

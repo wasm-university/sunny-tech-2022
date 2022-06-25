@@ -1,1 +1,0 @@
-# demos-fight-strings-limitation
