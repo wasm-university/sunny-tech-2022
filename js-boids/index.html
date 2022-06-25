@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>boids</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="my.css">
+
+</head>
+<body>
+  <h1>Only JavaScript</h1>
+
+<canvas id="canvas" width="800" height="800"></canvas>
+
+<script type="text/javascript">
+
+  const constraints = {
+    border:5,
+    width: 800,
+    height: 800,
+    maxVelocity: 5
+  }
+
+  let cowsList = []
+
+  class Cow {
+    constructor({nickName, x, y, constraints}) {
+      this.nickName = nickName
+      this.x = x
+      this.y = y
+      this.constraints = constraints
+      this.xVelocity = 1;
+      this.yVelocity = -1;
+    }
+
+    move() {
+      this.x += this.xVelocity;
+      this.y += this.yVelocity;
+      if(this.x <= this.constraints.border || this.x >= this.constraints.width - this.constraints.border) {
+        this.x -= this.xVelocity;
+        this.x = Math.max(this.x, this.constraints.border);
+        this.x = Math.min(this.x, this.constraints.width - this.constraints.border);
+        this.xVelocity = -this.xVelocity;
+        this.x += this.xVelocity;
+      }
+      if(this.y <= this.constraints.border || this.y >= this.constraints.height - this.constraints.border) {
+        this.y -= this.yVelocity;
+        this.y = Math.max(this.y, this.constraints.border);
+        this.y = Math.min(this.y, this.constraints.height - this.constraints.border);
+        this.yVelocity = -this.yVelocity;
+        this.y += this.yVelocity;
+      }    
+    }
+
+    distance (boid) {
+      var distX = this.x - boid.x;
+      var distY = this.y - boid.y;
+      return Math.sqrt(distX * distX + distY * distY);
+    }
+
+    moveAway (boids, minDistance) {
+      var distanceX = 0;
+      var distanceY = 0;
+      var numClose = 0;
+
+      for(var i = 0; i < boids.length; i++) {
+        var boid = boids[i];
+
+        if(boid.x == this.x && boid.y == this.y) continue;
+
+        var distance = this.distance(boid)
+        if(distance < minDistance) {
+          numClose++;
+          var xdiff = (this.x - boid.x);
+          var ydiff = (this.y - boid.y);
+
+          if(xdiff >= 0) xdiff = Math.sqrt(minDistance) - xdiff;
+          else if(xdiff < 0) xdiff = -Math.sqrt(minDistance) - xdiff;
+
+          if(ydiff >= 0) ydiff = Math.sqrt(minDistance) - ydiff;
+          else if(ydiff < 0) ydiff = -Math.sqrt(minDistance) - ydiff;
+
+          distanceX += xdiff;
+          distanceY += ydiff;
+          boid = null;
+        }
+      }
+
+      if(numClose == 0) return;
+
+      this.xVelocity -= distanceX / 5;
+      this.yVelocity -= distanceY / 5;
+    }
+
+    moveCloser (boids, distance) {
+      if(boids.length < 1) return
+
+      var avgX = 0;
+      var avgY = 0;
+      for(var i = 0; i < boids.length; i++) {
+        var boid = boids[i];
+        if(boid.x == this.x && boid.y == this.y) continue;
+        if(this.distance(boid) > distance) continue;
+
+        avgX += (this.x - boid.x);
+        avgY += (this.y - boid.y);
+        boid = null;
+      }
+
+      avgX /= boids.length;
+      avgY /= boids.length;
+
+      distance = Math.sqrt((avgX * avgX) + (avgY * avgY)) * -1.0
+      if(distance == 0) return;
+
+      this.xVelocity= Math.min(this.xVelocity + (avgX / distance) * 0.15, this.constraints.maxVelocity)
+      this.yVelocity = Math.min(this.yVelocity + (avgY / distance) * 0.15, this.constraints.maxVelocity)
+
+    }
+
+    moveWith (boids, distance) {
+      if(boids.length < 1) return
+
+      // calculate the average velocity of the other boids
+      var avgX = 0;
+      var avgY = 0;
+      for(var i = 0; i < boids.length; i++) {
+        var boid = boids[i];
+        if(boid.x == this.x && boid.y == this.y) continue;
+        if(this.distance(boid) > distance) continue;
+
+        avgX += boid.xVelocity;
+        avgY += boid.yVelocity;
+        boid = null;
+      }
+      avgX /= boids.length;
+      avgY /= boids.length;
+
+      distance = Math.sqrt((avgX * avgX) + (avgY * avgY)) * 1.0
+      if(distance == 0) return;
+
+      this.xVelocity= Math.min(this.xVelocity + (avgX / distance) * 0.05, this.constraints.maxVelocity)
+      this.yVelocity = Math.min(this.yVelocity + (avgY / distance) * 0.05, this.constraints.maxVelocity)
+    }
+
+    draw(canvas, context, formerX, formerY) {
+
+      let drawCircle = (circle) => {
+        context.beginPath();
+        context.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI, false);
+        context.fillStyle = circle.color;
+        context.fill();
+        context.lineWidth = circle.borderwidth;
+        context.strokeStyle = circle.bordercolor;
+        context.stroke();
+      }
+      let previousCircle = {
+        x: formerX,
+        y: formerY,
+        radius: 4,
+        color: "white",
+        borderwidth: 2,
+        bordercolor: "white"
+      }
+      let currentCircle = {
+        x: this.x,
+        y: this.y,
+        radius: 4,
+        color: "red",
+        borderwidth: 1,
+        bordercolor: "red"
+      }
+      drawCircle(previousCircle)
+      drawCircle(currentCircle)
+
+    }
+
+    start(cowsList, canvas, context) {
+      cowsList.push(this)
+
+      setInterval(() => {
+        //this.draw(canvas, context)
+        let formerX = this.x
+        let formerY = this.y
+
+        this.moveWith(cowsList, 300);
+        this.moveCloser(cowsList, 300);
+        this.moveAway(cowsList, 15);      
+        this.move();
+
+        this.draw(canvas, context, formerX, formerY)
+
+        //console.log(this.nickName, this.x, this.y, cowsList)
+
+      }, 1)    
+
+    }
+
+  }
+
+  let canvas = document.getElementById('canvas');
+  let context = canvas.getContext('2d');
+
+  for (let index = 0; index < 30; index++) {
+    let cow = new Cow({nickName:"bob"+index, x:10, y:10, constraints:constraints})
+    cowsList.push(cow)
+    //cow.start(cowsList, canvas, context)
+  }
+
+  setInterval(() => {
+    cowsList.forEach(cow => {
+      let formerX = cow.x
+      let formerY = cow.y
+
+      cow.moveWith(cowsList, 300);
+      cow.moveCloser(cowsList, 300);
+      cow.moveAway(cowsList, 15);      
+      cow.move();
+
+      cow.draw(canvas, context, formerX, formerY)
+    })
+
+  },1)
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+[[module]]
+module = "../hey/bin/Debug/net7.0/hey.wasm"
+route = "/hey"

@@ -1,0 +1,15 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Default Light+",
+  "terminal.integrated.fontSize": 20,
+  "editor.fontSize": 20,
+  "go.toolsEnvVars": {
+    "GOOS": "js",
+    "GOARCH": "wasm",
+  },
+  "gopls": {
+    "experimentalWorkspaceModule": true,
+  },
+  "go.useLanguageServer": true,
+  "terminal.integrated.defaultProfile.linux": "bash",
+}
