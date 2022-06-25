@@ -2,9 +2,9 @@ use wasm_bindgen::prelude::*;
 use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize)]
-pub struct Question {
-    pub text: String,
-    pub author: String,
+pub struct Human {
+    pub firstName: String,
+    pub lastName: String,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -15,12 +15,12 @@ pub struct Answer {
 
 #[wasm_bindgen]
 pub fn hello(value: &JsValue) -> JsValue {
-    // deserialize value (parameter) to question
-    let question: Question = value.into_serde().unwrap();
+    // deserialize value (parameter) to human
+    let human: Human = value.into_serde().unwrap();
 
     // serialize answer to JsValue
     let answer = Answer {
-        text: String::from(format!("🍊 hello {} [{}]", question.author, question.text)),
+        text: String::from(format!("🍊 hello {} {}", human.firstName, human.lastName)),
         author: String::from("@k33g_org"),
     };
 

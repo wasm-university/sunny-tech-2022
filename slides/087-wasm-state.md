@@ -4,6 +4,7 @@
 https://blog.scottlogic.com/2022/06/20/state-of-wasm-2022.html
 
 ---
+
 ![w:900](pictures/wasm-state.png)
 
 ---
@@ -79,3 +80,5 @@ Survey respondents are using WebAssembly much more freq
 - [Thread Twitter de @BrendanEich](https://twitter.com/BrendanEich/status/1535304420426141696?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1535304420426141696%7Ctwgr%5E%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fblog.scottlogic.com%2F2022%2F06%2F20%2Fstate-of-wasm-2022.html)
 - Javy (Shopify) : https://github.com/Shopify/javy
 - Suborbital Blog Post : https://blog.suborbital.dev/bringing-javascript-and-typescript-to-suborbital
+
+---
