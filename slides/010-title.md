@@ -6,7 +6,7 @@
 </style>
 # Petit cours de <mark>Wasm</mark> front/back par l'exemple
 
-**SunnyTech 2022** 🦩
+🦩 **SunnyTech 2022** 🦩
 
 https://github.com/wasm-university/sunny-tech-2022
 
