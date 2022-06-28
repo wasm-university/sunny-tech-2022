@@ -1,7 +1,8 @@
 ### Demo ASP.NET & WASI
 
-- 👀 `hello/src/lib.rs`
-- 👀 `index.js`
-- 📦 `./build.sh`
-- 🚀 `node index.js`
+- 🚧 `dotnet new web -o hello`
+- 🚧 `./setup.sh`
+- 📝 update source code
+- 📦 `dotnet build`
+- 🚀 `wasmtime bin/Debug/net7.0/hello.wasm --tcplisten localhost:8080`
 

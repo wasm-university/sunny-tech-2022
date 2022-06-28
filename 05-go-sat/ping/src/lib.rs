@@ -4,7 +4,7 @@ use suborbital::log; // 👋
 use std::str;
 
 /*
-./05-go-sat ping/ping.wasm http://localhost:9090
+./demo ping/ping.wasm http://localhost:9090
 */
 
 struct Ping{}

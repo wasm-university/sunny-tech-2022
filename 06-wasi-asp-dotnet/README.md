@@ -29,6 +29,7 @@ app.Run();
 ## Build & Run
 
 ```bash
+cd hello
 dotnet build
 gp url 8080
 wasmtime bin/Debug/net7.0/hello.wasm --tcplisten localhost:8080

@@ -1,6 +1,0 @@
-name: as-hello-service
-namespace: default
-lang: assemblyscript
-version: ""
-apiVersion: 0.15.1
-fqfnUri: ""
