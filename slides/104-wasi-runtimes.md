@@ -18,7 +18,7 @@
 
 ---
 
-##### SDK WASI / Langage <mark>(<> CLI)</mark>
+##### SDK WASI / Langage <mark>(<> CLI)</mark> ⚡️⚡️
 
 <style scoped>
   mark {

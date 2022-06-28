@@ -58,26 +58,31 @@ tasks:
     command: |
       cd 03-nodejs-rust-function
       clear
+      bat TODO.md
 
   - name: 04-use-cli-grain-division
     command: |
       cd 04-use-cli-grain-division
       clear
+      bat TODO.md
 
   - name: 05-go-sat
     command: |
       cd 05-go-sat
       clear
+      bat TODO.md
 
   - name: 06-wasi-asp-dotnet
     command: |
       cd 06-wasi-asp-dotnet
       clear
+      bat TODO.md
 
   - name: 07-sat
     command: |
       cd 07-sat
       clear
+      bat TODO.md
 
 
 ports:

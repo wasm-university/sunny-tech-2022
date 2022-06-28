@@ -6,24 +6,32 @@
   ul {
     font-size: 90%;
   }
+
+  mark-invert {
+    background-color: #000000;
+    color: #17EFE7;
+  }
+  ul {
+    font-size: 90%;
+  }
 </style>
 
 
-#### Mais il y a des limitations 😢
+#### Mais il y a toujours les même limitations 😢
 
 - **Système de type trop simple**
   - <mark>Seulement 4 types numériques</mark> :
     - Integers (32 & 64 bit)
     - Floats (32 & 64 bit)
-  - Passer une `String` à une fonction n'est pas trivial 🥵
+  - <mark-invert>Passer une `String` à une fonction n'est pas trivial 🥵</mark-invert>
 
 - **Mode d’exécution fermé du module Wasm**
   - <mark>Pas d’accès à "l’extérieur"</mark> :
     - Pas d’appel http
     - Pas d’accès fichier
     - ...
-  - Il est possible de définir des **host functions**
-    - mais ce n'est pas simple 🤬
+  - <mark-invert>Il est possible de définir des **host functions**</mark-invert>
+    - <mark-invert>mais ce n'est pas simple 🤬</mark-invert>
 
 ---
 <style scoped>
@@ -42,12 +50,6 @@
   - https://wasmedge.org/book/en/extend/plugin/hostfunction.html#host-functions
 
 ---
-
-###### Principe des host functions
-
-![w:900](pictures/wasm-06.jpeg)
-
----
 <style scoped>
   mark {
     background-color: #17EFE7;
@@ -61,3 +63,9 @@
 https://hacks.mozilla.org/2019/08/webassembly-interface-types/
 
 ---
+###### Principe des host functions
+
+![w:900](pictures/wasm-06.jpeg)
+
+---
+

@@ -2,7 +2,3 @@
 demo
 ping/target
 ping/vendor
-#*.wasm
-#hello/target
-#hello/vendor
-
