@@ -45,6 +45,7 @@ tasks:
     command: |
       cd 02-js-boids
       clear
+      bat TODO.md
 
   - name: 02-wasm-go-boids
     command: |

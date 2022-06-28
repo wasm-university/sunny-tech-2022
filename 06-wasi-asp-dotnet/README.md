@@ -29,9 +29,8 @@ app.Run();
 ## Build & Run
 
 ```bash
-pkill -f little-server # kill previous sever if it exists
 dotnet build
-gp url 8081
+gp url 8080
 wasmtime bin/Debug/net7.0/hello.wasm --tcplisten localhost:8080
 ```
 

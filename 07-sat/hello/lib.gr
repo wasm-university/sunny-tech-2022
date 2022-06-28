@@ -5,10 +5,10 @@ import Http from "suborbital/http"
 import Log from "suborbital/log"
 
 export let run: Bytes -> Result<Bytes, (Int32, String)> = input => {
-  
+
   Log.info("👋 hello from Grain")
-  
-  let callAssemblyScript = Http.get("http://localhost:8081", None)
+
+  let callAssemblyScript = Http.get("http://localhost:8083", None)
 
   match (callAssemblyScript) {
     Ok(value) => {
@@ -17,7 +17,7 @@ export let run: Bytes -> Result<Bytes, (Int32, String)> = input => {
     Err(err) => Log.error("😡 ouch")
   }
 
-  let callJavaScript = Http.get("http://localhost:8082", None)
+  let callJavaScript = Http.get("http://localhost:8084", None)
 
   match (callJavaScript) {
     Ok(value) => {
