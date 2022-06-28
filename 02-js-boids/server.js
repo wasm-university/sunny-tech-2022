@@ -9,7 +9,7 @@ fastify.register(require('fastify-static'), {
 
 const start = async () => {
   try {
-    await fastify.listen(8080, "0.0.0.0")
+    await fastify.listen(8082, "0.0.0.0")
     console.log("server listening on:", fastify.server.address().port)
 
   } catch (error) {

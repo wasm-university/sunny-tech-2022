@@ -1,4 +1,4 @@
 #!/bin/bash
-gp url 8080
-node server.js
-
+pkill -f little-server
+gp url 8082
+bash -c "exec -a little-server node server.js"
