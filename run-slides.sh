@@ -11,6 +11,7 @@ rm ${target}
 #cat ./slides/07*-*.md >> ${target}
 cat ./slides/???-*.md >> ${target}
 
+gp url 5000
 
 PORT=5000 marp --html --server ./slides
 
