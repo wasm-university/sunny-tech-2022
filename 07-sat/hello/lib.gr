@@ -4,7 +4,7 @@ import Result from "result"
 import Http from "suborbital/http"
 import Log from "suborbital/log"
 
-export let run: Bytes -> Result<Bytes, (Int32, String)> = input => {
+export let run: Bytes -> Result<Bytes, (Int32, String)> = input =>  {
 
   Log.info("👋 hello from Grain")
 
