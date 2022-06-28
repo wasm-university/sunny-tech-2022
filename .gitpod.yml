@@ -28,6 +28,43 @@ tasks:
       #dotnet add package Wasi.Sdk --prerelease
       dotnet --version
 
+  - name: 00-c-web
+    command: |
+      cd 00-c-web
+
+  - name: 01-go-hello
+    command: |
+      cd 01-go-hello
+
+  - name: 02-js-boids
+    command: |
+      cd 02-js-boids
+
+  - name: 02-wasm-go-boids
+    command: |
+      cd 02-wasm-go-boids
+
+  - name: 03-nodejs-rust-function
+    command: |
+      cd 03-nodejs-rust-function
+
+  - name: 04-use-cli-grain-division
+    command: |
+      cd 04-use-cli-grain-division
+
+  - name: 05-go-sat
+    command: |
+      cd 05-go-sat
+
+  - name: 06-wasi-asp-dotnet
+    command: |
+      cd 06-wasi-asp-dotnet
+
+  - name: 07-sat
+    command: |
+      cd 07-sat
+
+
 ports:
   - port: 8080
     visibility: public

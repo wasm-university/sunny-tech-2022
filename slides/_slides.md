@@ -459,7 +459,7 @@ ul {
 
 ```javascript
 const go = new Go() // Go Wasm runtime
-
+// load wasm module and 🖐️ "expose" host functions
 WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject)
   .then(resultObject => {
     // execute `main`

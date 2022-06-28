@@ -15,9 +15,16 @@ func Hello(this js.Value, args []js.Value) interface{} {
 	log.Println("[From Go] 🖐️ human type:", reflect.TypeOf(human))
 
 	// get members of human
+  /*
+    {
+      firstName: "Bob",
+      lastName: "Morane"
+    }
+  */
 	firstName := human.Get("firstName").String()
 	lastName := human.Get("lastName").String()
 
+  // a map whose keys are strings and values are any type
 	return map[string]interface{} {
 		"greetings": "Hello " + firstName + " " + lastName,
 		"author":  "@k33g_org",
