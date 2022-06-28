@@ -1,4 +1,4 @@
-##### Toolchains par langage & hôte
+##### Toolchains par langage & hôte ⚡️⚡️
 
 <style scoped>
 table {
@@ -14,13 +14,17 @@ mark {
   background-color: #EFD217;
   color: #000000;
 }
+mark-bis {
+  background-color: #000000;
+  color: #EFD217;
+}
 </style>
 
 Langage         | WASM (VM JS)                    | WASI                                     | Remarks
 :---------------|:--------------------------------|:-----------------------------------------|:--------
-C/C++           | EMScripten, LLVM (clang)        | LLVM, SDK C/C++ Wasmer                   |
+<mark>C/C++ </mark>          | EMScripten, LLVM (clang)        | LLVM, SDK C/C++ Wasmer                   |
 <mark>Rust</mark>            | Wasm-pack + wasm-bindgen (glue) | rustup target add wasm32-wasi            | <mark>support navigateur</mark> 💖
-<mark>Go</mark>              | Intégré à la toolchain standard | Non ou alors utiliser TinyGo             | <mark>support navigateur</mark> 💖
+<mark-bis>Go</mark-bis>              | Intégré à la toolchain standard | Non ou alors utiliser TinyGo             | <mark>support navigateur</mark> 💖
 Assemblyscript  | Intégré                         | Intégré                                  | Ne cible que du WASM
 Swift           | SwiftWasm                       | SwiftWasm                                |
 Kotlin          | Kotlin native (expérimental)    |                                          |

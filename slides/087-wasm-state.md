@@ -60,11 +60,13 @@ Survey respondents are using WebAssembly much more freq
 -->
 
 ---
+<!--
 ##### Near’s JS SDK based on QuickJS
 
 ![w:800](pictures/js-wasm-01.png)
 
 ---
+-->
 ##### JS to WebAssembly toolchain
 
 ![w:800](pictures/js-wasm-02.png)

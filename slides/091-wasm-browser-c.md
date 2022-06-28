@@ -3,10 +3,10 @@
 ![fg](#000000)
 
 ### Avant de faire du Go
-# 1er module Wasm en C
+# 👀 1er module Wasm en C
 
 ---
-
+<!--
 `main.c`
 ```c
 #define WASM_EXPORT __attribute__((visibility("default")))
@@ -57,6 +57,7 @@ WebAssembly.instantiateStreaming(fetch("main.wasm"))
 ```
 
 ---
+-->
 ![bg](#000000)
 ![fg](#FFFFFF)
 # Démo 🚀

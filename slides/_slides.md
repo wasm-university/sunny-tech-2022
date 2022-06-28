@@ -84,23 +84,24 @@ https://github.com/wasm-university/sunny-tech-2022/issues
 
 ## Wasm peut s’exécuter partout
 
-JavaScript (navigateur)
-JavaScript (Node.js)
-GraalVM
-Runtimes **WASI** (Wasmer, Wastime, Wasmedge, …): CLI & Libs
-<!-- webassembly system interface -->
+- JavaScript (navigateur)
+- JavaScript (Node.js)
+- GraalVM
+- Runtimes **WASI** (Wasmer, Wastime, Wasmedge, …):
+  - *CLI & Libs/Frameworks*
+  - > WASI = webassembly system interface
 
 ---
 
-Wasm file ~= container image, **smaller**, safer, without an OS
+###### Wasm file (module) ~= container image, <mark>smaller</mark>, safer, without an OS
 
----
-###### Hosts
-
-![w:900](pictures/wasm-03.jpeg)
+![w:850](pictures/wasm-03.jpeg)
 
 
-<!-- la portabilité de wasm dépend de l'hôte -->
+<!-- la portabilité de wasm dépend de l'hôte
+l'hôte exporte des fonctions (utilisable par le module qui les importe)
+le module exporte des fonctions utilisables par l'hôte
+-->
 
 ---
 ![bg](#C4D8F8)
@@ -137,7 +138,7 @@ Wasm file ~= container image, **smaller**, safer, without an OS
 
 > Mais ...
 > - Certains "hôtes" (et toolchains) ont déjà tout prévu
-> - Certains frameworks aussi pour WASI *(WebAssembly System Interface)*
+> - Certains frameworks par-dessus WASI *(WebAssembly System Interface)*
 
 ---
 
@@ -145,7 +146,7 @@ Wasm file ~= container image, **smaller**, safer, without an OS
 # 🛠 ToolChains
 
 ---
-##### Toolchains par langage & hôte
+##### Toolchains par langage & hôte ⚡️⚡️
 
 <style scoped>
 table {
@@ -161,13 +162,17 @@ mark {
   background-color: #EFD217;
   color: #000000;
 }
+mark-bis {
+  background-color: #000000;
+  color: #EFD217;
+}
 </style>
 
 Langage         | WASM (VM JS)                    | WASI                                     | Remarks
 :---------------|:--------------------------------|:-----------------------------------------|:--------
-C/C++           | EMScripten, LLVM (clang)        | LLVM, SDK C/C++ Wasmer                   |
+<mark>C/C++ </mark>          | EMScripten, LLVM (clang)        | LLVM, SDK C/C++ Wasmer                   |
 <mark>Rust</mark>            | Wasm-pack + wasm-bindgen (glue) | rustup target add wasm32-wasi            | <mark>support navigateur</mark> 💖
-<mark>Go</mark>              | Intégré à la toolchain standard | Non ou alors utiliser TinyGo             | <mark>support navigateur</mark> 💖
+<mark-bis>Go</mark-bis>              | Intégré à la toolchain standard | Non ou alors utiliser TinyGo             | <mark>support navigateur</mark> 💖
 Assemblyscript  | Intégré                         | Intégré                                  | Ne cible que du WASM
 Swift           | SwiftWasm                       | SwiftWasm                                |
 Kotlin          | Kotlin native (expérimental)    |                                          |
@@ -241,11 +246,13 @@ Survey respondents are using WebAssembly much more freq
 -->
 
 ---
+<!--
 ##### Near’s JS SDK based on QuickJS
 
 ![w:800](pictures/js-wasm-01.png)
 
 ---
+-->
 ##### JS to WebAssembly toolchain
 
 ![w:800](pictures/js-wasm-02.png)
@@ -273,10 +280,10 @@ Survey respondents are using WebAssembly much more freq
 ![fg](#000000)
 
 ### Avant de faire du Go
-# 1er module Wasm en C
+# 👀 1er module Wasm en C
 
 ---
-
+<!--
 `main.c`
 ```c
 #define WASM_EXPORT __attribute__((visibility("default")))
@@ -327,6 +334,7 @@ WebAssembly.instantiateStreaming(fetch("main.wasm"))
 ```
 
 ---
+-->
 ![bg](#000000)
 ![fg](#FFFFFF)
 # Démo 🚀
