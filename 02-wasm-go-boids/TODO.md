@@ -3,7 +3,7 @@
 - 👀 `main.go`
 - 👀 `index.html`
 - 📦 `./build.go.sh` or `./build.tinygo.sh`
-- 🌍 `./serve.html`
+- 🌍 `./serve.sh`
 - run `02-js-boids` in another tab
 - 🖐️ don't forget to stop the http server
 

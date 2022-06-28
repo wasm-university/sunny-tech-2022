@@ -1,0 +1,4 @@
+### Deck
+
+- 🌍 `./run-slides.sh`
+

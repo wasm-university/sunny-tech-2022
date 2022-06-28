@@ -3,6 +3,6 @@
 - 👀 `main.c`
 - 👀 `index.html`
 - 📦 `./build.sh`
-- 🌍 `./serve.html`
+- 🌍 `./serve.sh`
 - 🖐️ don't forget to stop the http server
 

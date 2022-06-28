@@ -1,6 +1,6 @@
 ### Demo Boids & JavaScript
 
 - 👀 `index.html`
-- 🌍 `./serve.html`
+- 🌍 `./serve.sh`
 - 🖐️ don't forget to stop the http server
 

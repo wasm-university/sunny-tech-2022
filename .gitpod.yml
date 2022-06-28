@@ -28,6 +28,7 @@ tasks:
       #dotnet workload install wasm-tools
       #dotnet add package Wasi.Sdk --prerelease
       dotnet --version
+      bat TODO.md
 
   - name: 00-c-web
     command: |
