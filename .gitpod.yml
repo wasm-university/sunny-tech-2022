@@ -33,13 +33,13 @@ tasks:
     command: |
       cd 00-c-web
       clear
-      clear
       bat TODO.md
-      
+
   - name: 01-go-hello
     command: |
       cd 01-go-hello
       clear
+      bat TODO.md
 
   - name: 02-js-boids
     command: |
