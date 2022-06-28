@@ -22,6 +22,7 @@ tasks:
     init: |
       echo "🚀 initialize"
       npm install
+      clear
       export DOTNET_ROOT=$HOME/dotnet
       export PATH=$PATH:$HOME/dotnet
       #dotnet workload install wasm-tools
@@ -31,38 +32,48 @@ tasks:
   - name: 00-c-web
     command: |
       cd 00-c-web
+      clear
 
   - name: 01-go-hello
     command: |
       cd 01-go-hello
+      clear
 
   - name: 02-js-boids
     command: |
       cd 02-js-boids
+      clear
 
   - name: 02-wasm-go-boids
     command: |
       cd 02-wasm-go-boids
+      clear
+      bat TODO.md
 
   - name: 03-nodejs-rust-function
     command: |
       cd 03-nodejs-rust-function
+      clear
 
   - name: 04-use-cli-grain-division
     command: |
       cd 04-use-cli-grain-division
+      clear
 
   - name: 05-go-sat
     command: |
       cd 05-go-sat
+      clear
 
   - name: 06-wasi-asp-dotnet
     command: |
       cd 06-wasi-asp-dotnet
+      clear
 
   - name: 07-sat
     command: |
       cd 07-sat
+      clear
 
 
 ports:
