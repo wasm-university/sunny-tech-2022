@@ -1,5 +1,5 @@
 # Merci 😃
 
-**à vous & à l'équipe Voxxed Luxembourg**
+**à vous & à l'équipe SunnyTech 🥰**
 
 ---

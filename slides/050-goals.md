@@ -1,6 +1,6 @@
 # Objectif(s)
 
-- Université "découverte" par l’exemple
+- Une présentation "découverte" par l’exemple
 - Rien de complexe
 - Repartir avec le bagage nécessaire 🧳
 
