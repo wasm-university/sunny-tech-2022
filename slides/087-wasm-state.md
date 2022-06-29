@@ -1,13 +1,15 @@
 ![bg](#E3C3E9)
 # Statut actuel de Wasm
+(issue d'un sondage)
 
 https://blog.scottlogic.com/2022/06/20/state-of-wasm-2022.html
 
 ---
-
+<!--
 ![w:900](pictures/wasm-state.png)
 
 ---
+-->
 <style scoped>
 mark {
   background-color: #EFD217;
@@ -40,7 +42,7 @@ mark-green {
 
 </style>
 
-#### (Très) Rapide résumé (issue du sondage)
+#### Statut actuel de Wasm
 
 - L'utilisation de <mark-purple>**WASM**</mark-purple> ++ fréquente
 - Popularité de <mark-orange>**Rust**</mark-orange> en hausse

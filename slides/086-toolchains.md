@@ -25,7 +25,7 @@ Langage         | WASM (VM JS)                    | WASI                        
 <mark>C/C++ </mark>          | EMScripten, LLVM (clang)        | LLVM, SDK C/C++ Wasmer                   |
 <mark>Rust</mark>            | Wasm-pack + wasm-bindgen (glue) | rustup target add wasm32-wasi            | <mark>support navigateur</mark> 💖
 <mark-bis>Go</mark-bis>              | Intégré à la toolchain standard | Non ou alors utiliser TinyGo             | <mark>support navigateur</mark> 💖
-Assemblyscript  | Intégré                         | Intégré                                  | Ne cible que du WASM
+<mark>Assemblyscript</mark>  | Intégré                         | Intégré                                  | Ne cible que du WASM
 Swift           | SwiftWasm                       | SwiftWasm                                |
 Kotlin          | Kotlin native (expérimental)    |                                          |
 C#              | Blazor (solution complète)      | <mark>dotnet add package Wasi.Sdk --prerelease</mark> |

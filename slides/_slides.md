@@ -36,14 +36,15 @@ https://github.com/wasm-university/sunny-tech-2022
 - RdV des speakers
 
 ---
-# Déroulement
+# Agenda 📅
+- Wasm ?
+- Wasm & la VM JavaScript
+- Wasi & les Runtimes
+- Wasi & services web
 
-- 👋 Vous pouvez intervenir à tout moment
-- 10% Théorie 90% Démos (en gros)
-- 🚀 Des démos que vous pourrez refaire :
-  - https://github.com/wasm-university/sunny-tech-2022
-  - en utilisant <mark>Gitpod</mark>
-  - ou en utilisant <mark>DevContainer</mark>
+>- 🚀 Pour refaire les démos :
+>  - https://github.com/wasm-university/sunny-tech-2022
+>  - en utilisant <mark>Gitpod</mark> ou en utilisant <mark>DevContainer</mark>
 
 ---
 # Objectif(s)
@@ -71,14 +72,21 @@ https://github.com/wasm-university/sunny-tech-2022/issues
 ### C'est parti ! 🚀
 
 ---
-###### Wasm Quoi/Pourquoi ?
+### Wasm Quoi/Pourquoi ?
 
+<!--
 ![w:900](pictures/wasm-01.jpeg)
+-->
 
----
-###### Histoire
+- Un format binaire destiné à s'exécuter dans le navigateur (à l'origine)
+  - Naissance 2015
+  - Spec WASI 2019
+  - Core spec v2 2022
+- Petit & efficace
+- Sécurisé
+- Agnostique (langage)
 
-![w:900](pictures/wasm-02.jpeg)
+https://webassembly.org
 
 ---
 
@@ -120,7 +128,7 @@ le module exporte des fonctions utilisables par l'hôte
 
 ---
 
-## <mark>Safe by default</mark>
+## Mais: <mark>Safe by default</mark>
 
 ### C'est une bonne limitation
 
@@ -173,7 +181,7 @@ Langage         | WASM (VM JS)                    | WASI                        
 <mark>C/C++ </mark>          | EMScripten, LLVM (clang)        | LLVM, SDK C/C++ Wasmer                   |
 <mark>Rust</mark>            | Wasm-pack + wasm-bindgen (glue) | rustup target add wasm32-wasi            | <mark>support navigateur</mark> 💖
 <mark-bis>Go</mark-bis>              | Intégré à la toolchain standard | Non ou alors utiliser TinyGo             | <mark>support navigateur</mark> 💖
-Assemblyscript  | Intégré                         | Intégré                                  | Ne cible que du WASM
+<mark>Assemblyscript</mark>  | Intégré                         | Intégré                                  | Ne cible que du WASM
 Swift           | SwiftWasm                       | SwiftWasm                                |
 Kotlin          | Kotlin native (expérimental)    |                                          |
 C#              | Blazor (solution complète)      | <mark>dotnet add package Wasi.Sdk --prerelease</mark> |
@@ -186,14 +194,16 @@ Python          | Expérimental                    |                            
 ---
 ![bg](#E3C3E9)
 # Statut actuel de Wasm
+(issue d'un sondage)
 
 https://blog.scottlogic.com/2022/06/20/state-of-wasm-2022.html
 
 ---
-
+<!--
 ![w:900](pictures/wasm-state.png)
 
 ---
+-->
 <style scoped>
 mark {
   background-color: #EFD217;
@@ -226,7 +236,7 @@ mark-green {
 
 </style>
 
-#### (Très) Rapide résumé (issue du sondage)
+#### Statut actuel de Wasm
 
 - L'utilisation de <mark-purple>**WASM**</mark-purple> ++ fréquente
 - Popularité de <mark-orange>**Rust**</mark-orange> en hausse
@@ -273,74 +283,6 @@ Survey respondents are using WebAssembly much more freq
 ![bg](#728CB7)
 ![fg](#FFFFFF)
 # Wasm & le Navigateur 🌍
-
----
-
-![bg](#3AF1F2)
-![fg](#000000)
-
-### Avant de faire du Go
-# 👀 1er module Wasm en C
-
----
-<!--
-`main.c`
-```c
-#define WASM_EXPORT __attribute__((visibility("default")))
-
-WASM_EXPORT
-float power(float number, int pow) {
- float res = number;
-   for (int i = 0;i < pow - 1; i++) {
-     res = res * number;
-   }
- return res;
-}
-
-WASM_EXPORT
-char* greet()
-{
-    static char str[12] = "hello world!";
-    return (char*)str;
-}
-```
-
----
-#### Build
-
-```bash
-clang --target=wasm32 \
-  --no-standard-libraries -Wl,--export-all -Wl, \
-  --no-entry -o main.wasm main.c
-```
-
----
-
-`index.html`
-```javascript
-WebAssembly.instantiateStreaming(fetch("main.wasm"))
-  .then(({ instance }) => {
-    console.log("👋 main.wasm is loaded")
-
-    const value = instance.exports.power(2, 2)
-
-    console.log(`🤖 value: ${value}`)
-    console.log(`👋 greet: ${instance.exports.greet()}`)
-
-  })
-  .catch(error => {
-    console.log("😡 ouch", error)
-  })
-```
-
----
--->
-![bg](#000000)
-![fg](#FFFFFF)
-# Démo 🚀
-
-
-<a href="https://github.com/wasm-university/sunny-tech-2022/tree/main/00-c-web" target="_blank">00-c-web</a>
 
 ---
 

@@ -1,10 +1,11 @@
-# Déroulement
+# Agenda 📅
+- Wasm ?
+- Wasm & la VM JavaScript
+- Wasi & les Runtimes
+- Wasi & services web
 
-- 👋 Vous pouvez intervenir à tout moment
-- 10% Théorie 90% Démos (en gros)
-- 🚀 Des démos que vous pourrez refaire :
-  - https://github.com/wasm-university/sunny-tech-2022
-  - en utilisant <mark>Gitpod</mark>
-  - ou en utilisant <mark>DevContainer</mark>
+>- 🚀 Pour refaire les démos :
+>  - https://github.com/wasm-university/sunny-tech-2022
+>  - en utilisant <mark>Gitpod</mark> ou en utilisant <mark>DevContainer</mark>
 
 ---
