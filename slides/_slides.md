@@ -686,9 +686,9 @@ Sous-groupe de spécifications **WebAssembly** pour transformer <mark-purple>**W
 
 > <mark-grey>**WASI == Les fondations pour "sortir" Wasm du navigateur**</mark-grey>
 
-
+<!--
 > **WASI est une spécification pour pouvoir fournir un accès <mark-cyan>sécurisé et isolé</mark-cyan> au système sur lequel s’exécute <mark-orange>l’hôte</mark-orange> du <mark-purple>module Wasm</mark-purple>.**
-
+-->
 ---
 
 
@@ -738,10 +738,12 @@ Sous-groupe de spécifications **WebAssembly** pour transformer <mark-purple>**W
 # Les Runtimes "WASI"
 (qui implémentent la norme WASI)
 
+<!--
 - WASM / WASI => les spécifications par le **W3C**,
 - La **Bytecode Alliance** s’occupe de l’implémentation
 
 Avec Amazon, ARM, <mark>Cosmonic</mark>, Fastly, Google, Intel, <mark>Fermyon</mark>, <mark>Suborbital</mark>, Microsoft, Mozilla, Shopify, Siemens ...
+-->
 
 ---
 
@@ -763,7 +765,7 @@ Avec Amazon, ARM, <mark>Cosmonic</mark>, Fastly, Google, Intel, <mark>Fermyon</m
 ![w:900](pictures/wasm-05.jpeg)
 
 ---
-
+<!--
 ##### SDK WASI / Langage <mark>(<> CLI)</mark> ⚡️⚡️
 
 <style scoped>
@@ -801,7 +803,7 @@ Langage             | WASMER                   | WASMEDGE (+arm)           | WAS
 > *Wasmer supporte d'autres langages*
 
 ---
-
+-->
 
 
 <style scoped>
@@ -912,7 +914,7 @@ La documentation de WasmEdge est 💖
     color: #000000;
   }
 </style>
-## Mais : à venir
+## Mais la spécification évolue :
 
 <mark><b>Interface Types</b></mark> : décrire des types de plus haut niveau, éviter les frictions
 
@@ -1058,7 +1060,8 @@ ul {
    font-size: 70%;
 }
 </style>
-##### À suivre https://github.com/WebAssembly
+##### Suivre la spécification :
+https://github.com/WebAssembly
 *Juin 2022 :*
 - https://github.com/WebAssembly/component-model
   - amélioration intégration host

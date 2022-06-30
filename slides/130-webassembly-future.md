@@ -16,7 +16,8 @@ ul {
    font-size: 70%;
 }
 </style>
-##### À suivre https://github.com/WebAssembly
+##### Suivre la spécification :
+https://github.com/WebAssembly
 *Juin 2022 :*
 - https://github.com/WebAssembly/component-model
   - amélioration intégration host

@@ -56,7 +56,7 @@
     color: #000000;
   }
 </style>
-## Mais : à venir
+## Mais la spécification évolue :
 
 <mark><b>Interface Types</b></mark> : décrire des types de plus haut niveau, éviter les frictions
 

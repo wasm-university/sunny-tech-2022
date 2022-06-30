@@ -14,9 +14,11 @@
 # Les Runtimes "WASI"
 (qui implémentent la norme WASI)
 
+<!--
 - WASM / WASI => les spécifications par le **W3C**,
 - La **Bytecode Alliance** s’occupe de l’implémentation
 
 Avec Amazon, ARM, <mark>Cosmonic</mark>, Fastly, Google, Intel, <mark>Fermyon</mark>, <mark>Suborbital</mark>, Microsoft, Mozilla, Shopify, Siemens ...
+-->
 
 ---

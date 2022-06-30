@@ -26,8 +26,8 @@ Sous-groupe de spécifications **WebAssembly** pour transformer <mark-purple>**W
 
 > <mark-grey>**WASI == Les fondations pour "sortir" Wasm du navigateur**</mark-grey>
 
-
+<!--
 > **WASI est une spécification pour pouvoir fournir un accès <mark-cyan>sécurisé et isolé</mark-cyan> au système sur lequel s’exécute <mark-orange>l’hôte</mark-orange> du <mark-purple>module Wasm</mark-purple>.**
-
+-->
 ---
 

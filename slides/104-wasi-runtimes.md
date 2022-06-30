@@ -17,7 +17,7 @@
 ![w:900](pictures/wasm-05.jpeg)
 
 ---
-
+<!--
 ##### SDK WASI / Langage <mark>(<> CLI)</mark> ⚡️⚡️
 
 <style scoped>
@@ -55,6 +55,6 @@ Langage             | WASMER                   | WASMEDGE (+arm)           | WAS
 > *Wasmer supporte d'autres langages*
 
 ---
-
+-->
 
 
