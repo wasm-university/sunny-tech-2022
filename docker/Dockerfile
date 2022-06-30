@@ -11,7 +11,8 @@ RUN brew tap suborbital/subo && \
     brew install bat && \
     brew install exa && \
     brew install hey && \
-    brew install marp-cli
+    brew install marp-cli && \
+    brew install pv
 
 # ------------------------------------
 # Install TinyGo
