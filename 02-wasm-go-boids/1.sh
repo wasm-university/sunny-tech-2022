@@ -11,7 +11,7 @@ clear
 # Put your stuff here
 rm wasm_exec.js
 tinygo_version="0.23.0"
-#wget https://raw.githubusercontent.com/tinygo-org/tinygo/v${tinygo_version}/targets/wasm_exec.js
+wget https://raw.githubusercontent.com/tinygo-org/tinygo/v${tinygo_version}/targets/wasm_exec.js
 pei "tinygo build -o main.wasm -target wasm ./main.go"
 pei "ls -lh *.wasm"
 echo "🚀 run http server 🌍"
