@@ -9,7 +9,7 @@
 clear
 
 # Put your stuff here
-pei "go build -o demo"
+#pei "go build -o demo"
 pei "subo build ping"
 pei "node pong.js"
 
