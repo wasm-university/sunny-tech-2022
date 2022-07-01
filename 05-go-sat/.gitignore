@@ -1,4 +1,4 @@
-*.wasm
-demo
+#*.wasm
+#demo
 ping/target
 ping/vendor
